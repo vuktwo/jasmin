@@ -1,0 +1,113 @@
+﻿:root{--ink:#fff9f2;--muted:#d1cef2;--yellow:#ffdc63;--blue:#38c9ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:"Comic Sans MS","Comic Sans",cursive;background:radial-gradient(circle at 15% 20%,#776bd4 0 2px,transparent 3px) 0 0/49px 47px,radial-gradient(ellipse at 80% -15%,#6d63d9 0,transparent 40%),linear-gradient(135deg,#241c61,#111133 65%,#1a1550)}body:before,body:after{content:"";position:fixed;z-index:-1;border-radius:50%;opacity:.45}body:before{width:24rem;height:24rem;background:#e54d9a;left:-13rem;bottom:-10rem}body:after{width:18rem;height:18rem;background:#20d6ee;right:-8rem;bottom:4rem}.site-header,.page-shell{width:min(1280px,calc(100% - 3rem));margin:auto}.site-header{min-height:96px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.wordmark{color:#fff;text-decoration:none;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:bold;text-shadow:3px 3px 0 #30266f}.logo-spark,.stat-icon{color:var(--yellow)}.discord-button,.download-button{border:0;background:var(--blue);color:#11133d;font:inherit;font-weight:bold;cursor:pointer;text-decoration:none;box-shadow:4px 5px 0 #17123f;transition:.18s}.discord-button{padding:.7rem 1rem;border-radius:1rem}.discord-button:hover,.download-button:hover{transform:translate(2px,2px);box-shadow:2px 3px 0 #17123f}.page-shell{padding:3rem 0 6rem}.intro,.gallery-heading{max-width:720px;margin-bottom:1.65rem}.eyebrow{margin:0 0 .45rem;color:var(--yellow);font-weight:bold;font-size:1.05rem;letter-spacing:.04em}h1,h2,p{margin-top:0}h1{margin-bottom:.6rem;font-size:clamp(3rem,7vw,6rem);line-height:.88;letter-spacing:-.06em;text-shadow:5px 5px 0 #31296e}.intro>p:last-child,.gallery-heading>p:last-child{font-size:1.25rem;color:var(--muted);line-height:1.35}.dashboard-stats,.gallery-stats{display:flex;flex-wrap:wrap;gap:.8rem;margin:0 0 2.2rem}.dashboard-stats div,.gallery-stats span{background:#ffffff21;border:2px solid #ffffff3d;border-radius:1rem;padding:.7rem 1rem;backdrop-filter:blur(5px)}.dashboard-stats div{min-width:145px;display:grid;grid-template-columns:auto 1fr;column-gap:.5rem}.dashboard-stats strong{font-size:1.35rem;line-height:1}.dashboard-stats small{grid-column:2;color:var(--muted)}.stat-icon{grid-row:span 2;font-size:1.8rem}.gallery-stats{color:var(--muted)}.gallery-stats b{color:#fff}.guild-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.4rem}.guild-card{position:relative;isolation:isolate;min-height:300px;padding:2rem 1.4rem 1.25rem;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;color:inherit;text-decoration:none;border:2px solid #ffffff61;box-shadow:7px 9px 0 #0b082f75;transition:.2s}.guild-card:nth-child(3n+1){border-radius:47% 53% 38% 62%/47% 37% 63% 53%}.guild-card:nth-child(3n+2){border-radius:60% 40% 58% 42%/43% 60% 40% 57%}.guild-card:nth-child(3n){border-radius:42% 58% 48% 52%/61% 39% 61% 39%}.guild-card:hover{transform:rotate(-1deg) translateY(-7px);box-shadow:10px 16px 0 #0b082f66}.blob-0{background:linear-gradient(145deg,#ff8aba,#dc5da1)}.blob-1{background:linear-gradient(145deg,#4ee1ff,#5b79e8)}.blob-2{background:linear-gradient(145deg,#91edbd,#37b79f)}.blob-3{background:linear-gradient(145deg,#ffc968,#f78176)}.blob-4{background:linear-gradient(145deg,#b89aff,#7462dd)}.blob-5{background:linear-gradient(145deg,#ff9990,#f55d98)}.blob-glow{position:absolute;z-index:-1;width:80%;aspect-ratio:1;border-radius:50%;background:#ffffff38;right:-20%;top:-30%}.guild-initial{width:64px;height:64px;display:grid;place-items:center;border-radius:46% 54% 55% 45%;background:#ffffffd6;color:#262062;font-size:2rem;font-weight:bold;box-shadow:3px 4px 0 #1e144b40}.guild-copy{display:grid;gap:.25rem}.guild-copy strong{font-size:1.6rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.guild-copy small{font-size:1.1rem}.guild-copy em{color:#29205e;font-size:.83rem;font-style:normal;font-weight:bold}.open-pill{align-self:flex-end;padding:.45rem .7rem;border-radius:99px;background:#ffffffc2;color:#20194f;font-weight:bold;font-size:.83rem}.empty-state{padding:2rem;border:2px dashed #ffffff80;border-radius:1rem;background:#ffffff1a;color:var(--muted)}.back-link{padding:.5rem .8rem;border-radius:.8rem;color:#fff;text-decoration:none;background:#ffffff26}.image-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}.image-card{overflow:hidden;background:#ffffff24;border:2px solid #ffffff42;border-radius:1.25rem;box-shadow:5px 6px 0 #0b082f4d}.image-preview{position:relative;display:block;width:100%;padding:0;border:0;cursor:zoom-in;background:#12102f}.image-preview img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}.expand-icon{position:absolute;right:.7rem;bottom:.7rem;width:2.2rem;height:2.2rem;display:grid;place-items:center;border-radius:50%;background:#fff;color:#25205f;font:bold 1.35rem Arial}.image-copy{display:flex;align-items:center;gap:.5rem;padding:.75rem .8rem .4rem}.image-card h2{flex:1;min-width:0;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:1rem}.download-button{padding:.35rem .5rem;border-radius:.5rem;font-size:.75rem;white-space:nowrap}.tags{min-height:39px;padding:.25rem .75rem .75rem;display:flex;flex-wrap:wrap;gap:.35rem}.tags span{padding:.16rem .5rem;border-radius:99px;background:#ffffff33;font-size:.75rem}.no-tags{min-height:39px;margin:0;padding:.3rem .75rem .75rem;color:var(--muted);font-size:.78rem}.image-modal{max-width:min(90vw,1000px);max-height:90vh;padding:1rem;border:0;border-radius:1rem;background:#211c52;color:#fff;box-shadow:0 0 0 100vmax #040311b8}.image-modal::backdrop{background:#040311b8}.image-modal img{display:block;max-width:100%;max-height:calc(90vh - 4rem);margin:auto;object-fit:contain}.modal-close{position:absolute;right:.5rem;top:.35rem;width:2rem;height:2rem;border:0;border-radius:50%;background:#fff;color:#251e5a;font:bold 1.5rem Arial;cursor:pointer}.modal-caption{padding:.55rem .25rem 0;font-weight:bold}.toast{position:fixed;left:50%;bottom:1.5rem;z-index:5;max-width:calc(100% - 2rem);padding:.85rem 1rem;border-radius:.75rem;background:#fff;color:#211a51;font-weight:bold;box-shadow:4px 5px 0 #120d37;transform:translate(-50%,150%);opacity:0;transition:.25s}.toast.show{transform:translate(-50%,0);opacity:1}@media(max-width:620px){.site-header,.page-shell{width:min(100% - 2rem,1280px)}.site-header{min-height:78px}.discord-button{font-size:.75rem;padding:.55rem}.page-shell{padding-top:2rem}.guild-grid{grid-template-columns:1fr}.guild-card{min-height:240px}.gallery-stats span{font-size:.85rem}.image-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.image-copy{padding:.55rem}.download-button{font-size:.65rem}.image-card h2{font-size:.8rem}.tags{padding:.2rem .55rem .55rem}}
+
+/* Refined dashboard treatment */
+body { background: radial-gradient(circle at 15% 20%, #776bd4 0 1.5px, transparent 2px) 0 0 / 49px 47px, radial-gradient(ellipse at 80% -15%, #5750b0 0, transparent 42%), linear-gradient(135deg, #201b50, #12112f 65%, #191644); }
+body::before, body::after { filter: blur(12px); opacity: .3; }
+.site-header { border-bottom: 1px solid rgba(255,255,255,.1); }
+.page-shell { padding-top: 3.6rem; }
+.eyebrow { font-size: .94rem; letter-spacing: .08em; text-transform: uppercase; }
+.intro > p:last-child, .gallery-heading > p:last-child { font-size: 1.15rem; line-height: 1.45; }
+.dashboard-stats div, .gallery-stats span { border-width: 1px; background: rgba(255,255,255,.13); backdrop-filter: blur(10px); }
+.guild-grid { gap: 1.25rem; }
+.guild-card, .guild-card:nth-child(n) { min-height: 268px; padding: 1.55rem; overflow: hidden; border: 1px solid rgba(255,255,255,.28); border-radius: 32px; background: linear-gradient(145deg, rgba(255,255,255,.20), rgba(255,255,255,.08)); box-shadow: 0 12px 32px rgba(5,4,29,.22); backdrop-filter: blur(13px); }
+.guild-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.55); box-shadow: 0 19px 38px rgba(5,4,29,.34); }
+.blob-0, .blob-1, .blob-2, .blob-3, .blob-4, .blob-5 { background: linear-gradient(145deg, rgba(255,255,255,.22), rgba(255,255,255,.08)); }
+.blob-glow { width: 90%; right: -28%; top: -40%; background: rgba(255,255,255,.14); filter: blur(15px); }
+.guild-initial { width: 58px; height: 58px; border-radius: 18px; font-size: 1.7rem; box-shadow: none; }
+.guild-copy { gap: .33rem; min-width: 0; }
+.guild-copy strong { font-size: 1.48rem; }
+.guild-copy small { font-size: 1rem; color: #f2f0ff; }
+.guild-copy em { color: #d5d2ef; font-weight: normal; }
+.open-pill { background: rgba(255,255,255,.17); border: 1px solid rgba(255,255,255,.2); color: #fff; }
+.image-card { border-width: 1px; background: rgba(255,255,255,.13); box-shadow: 0 10px 25px rgba(5,4,29,.18); }
+.discord-button, .download-button { border: 1px solid rgba(255,255,255,.3); box-shadow: 0 5px 14px rgba(8,7,37,.25); }
+.discord-button:hover, .download-button:hover { transform: translateY(-2px); background: #a2e7fb; box-shadow: 0 8px 18px rgba(8,7,37,.35); }
+@media(max-width:620px) { .guild-card, .guild-card:nth-child(n) { min-height: 235px; border-radius: 26px; } }
+/* --- Whitelist Badges --- */
+.whitelist-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: fit-content;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  background: rgba(255, 220, 99, 0.15); /* Using your --yellow */
+  color: var(--yellow);
+  font-size: 0.75rem;
+  font-weight: 800;
+  border: 1px solid rgba(255, 220, 99, 0.4);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.gallery-stats .whitelist-badge {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.9rem;
+  margin: 0;
+  align-self: center;
+}
+
+/* --- Image Action Bar --- */
+.image-copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 0.8rem 0.4rem;
+}
+
+.image-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* --- Beautified Icon Buttons --- */
+.download-button, .delete-button {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.3);
+  box-shadow: 0 4px 10px rgba(8,7,37,.25);
+  transition: .18s;
+  cursor: pointer;
+}
+
+.download-button {
+  background: rgba(56, 201, 255, 0.15); /* Using your --blue */
+  color: var(--blue);
+  border-color: rgba(56, 201, 255, 0.4);
+}
+
+.download-button:hover {
+  transform: translateY(-2px);
+  background: rgba(56, 201, 255, 0.35);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(8,7,37,.35);
+}
+
+.delete-button {
+  background: rgba(220, 60, 90, 0.15);
+  color: #ffb3c1;
+  border-color: rgba(255, 120, 120, 0.4);
+}
+
+.delete-button:hover {
+  transform: translateY(-2px);
+  background: rgba(220, 60, 90, 0.45);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(8,7,37,.35);
+}
+
+.delete-form {
+  margin: 0;
+  display: flex;
+}

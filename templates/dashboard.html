@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jasmin bot — gallery</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/site.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="/"><span class="logo-spark">✦</span> jasmin bot</a>
+    <div>
+      <span>signed in as {{ user.get('global_name') or user.get('username') or 'Discord user' }}</span>
+      <form method="post" action="/auth/logout" style="display:inline">
+        <button class="discord-button" type="submit">Sign out</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <p class="eyebrow">your little image universe</p>
+      <h1>choose a server!!</h1>
+      <p>Only galleries shared with your current Discord servers appear here.</p>
+    </section>
+
+    <section class="dashboard-stats">
+      <div>
+        <span class="stat-icon">✦</span>
+        <strong>{{ guilds | length }}</strong>
+        <small>servers</small>
+      </div>
+      <div>
+        <span class="stat-icon">♡</span>
+        <strong>{{ total_images }}</strong>
+        <small>pictures saved</small>
+      </div>
+      <div>
+        <span class="stat-icon">☁</span>
+        <strong>{{ (total_storage / 1048576) | round(1) }} MB</strong>
+        <small>memory used</small>
+      </div>
+    </section>
+
+    {% if guilds %}
+      <section class="guild-grid">
+        {% for guild in guilds %}
+          <a class="guild-card blob-{{ loop.index0 % 6 }}" href="/guilds/{{ guild.id }}">
+            <span class="blob-glow"></span>
+            <span class="guild-initial">{{ guild.name[0] | upper }}</span>
+            <span class="guild-copy">
+              <strong>{{ guild.name }}</strong>
+              <small>{{ guild.image_count }} images</small>
+              <em>{{ (guild.used_bytes / 1048576) | round(1) }} MB used · {{ guild.member_saves }} saves</em>
+              {% if guild.is_whitelisted %}
+                <span class="whitelist-badge">✦ whitelisted</span>
+              {% endif %}
+            </span>
+            <span class="open-pill">peek inside <b>→</b></span>
+          </a>
+        {% endfor %}
+      </section>
+    {% else %}
+      <section class="empty-state">
+        <h2>No galleries available.</h2>
+        <p>There are no galleries you can access right now.</p>
+      </section>
+    {% endif %}
+  </main>
+</body>
+</html>

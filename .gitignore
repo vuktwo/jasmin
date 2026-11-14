@@ -1,0 +1,26 @@
+# Secrets and to myself
+.env
+.env.*
+!.env.example
+oauth2thing.txt
+notes.md
+prompt.txt
+websiteidea.txt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Runtime data
+website reference/
+cloudflared.log
+link.txt
+*.log
+
+# Windows
+desktop.ini
+
+# Editor
+.vscode/

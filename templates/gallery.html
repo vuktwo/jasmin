@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ guild.name }} — jasmin bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/site.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="/"><span class="logo-spark">✦</span> jasmin bot</a>
+    <a class="back-link" href="/">← all servers</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="gallery-heading">
+      <p class="eyebrow">server gallery</p>
+      <h1>{{ guild.name }}</h1>
+      <p>{{ images | length }} {{ "image" if images | length == 1 else "images" }} saved — click one for the big picture.</p>
+    </section>
+
+    <section class="gallery-stats" aria-label="Server statistics">
+      <span>♡ <b>{{ images | length }}</b> images</span>
+      <span>☁ <b>{{ (guild.used_bytes / 1048576) | round(1) }} MB</b> of {{ (guild.limit_bytes / 1073741824) | round(0) }} GB</span>
+      <span>✦ <b>{{ guild.contributor_count }}</b> contributors</span>
+      {% if is_whitelisted %}
+        <span class="whitelist-badge">✦ you are whitelisted</span>
+      {% endif %}
+    </section>
+
+    {% if images %}
+      {% set tag_set = [] %}
+      {% for img in images %}
+        {% for tag in img.tags %}
+          {% if tag not in tag_set %}
+            {% set _ = tag_set.append(tag) %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
+      <section class="tag-filter">
+        <label for="tag-filter-select">filter by tag</label>
+        <select id="tag-filter-select">
+          <option value="">all images</option>
+          {% for tag in tag_set | sort %}
+            <option value="{{ tag }}">{{ tag }}</option>
+          {% endfor %}
+        </select>
+      </section>
+
+      <section class="image-grid" aria-label="{{ guild.name }} images" id="image-grid">
+        {% for image in images %}
+          {% set image_url = "/guilds/" ~ guild.id ~ "/images/" ~ image.name %}
+          <article class="image-card" data-tags="{{ image.tags | join(' ') }}">
+            <button class="image-preview" type="button" data-image="{{ image_url }}" data-title="{{ image.name }}" aria-label="View {{ image.name }} full size">
+              <img src="{{ image_url }}" alt="{{ image.name }}" loading="lazy">
+              <span class="expand-icon">↗</span>
+            </button>
+            
+            <div class="image-copy">
+              <h2>{{ image.name }}</h2>
+              <div class="image-actions">
+                <a class="download-button" href="{{ image_url }}" download="{{ image.name }}.{{ image.ext | default('image') }}" title="Download">↓</a>
+                {% if is_whitelisted %}
+                  <form method="post" class="delete-form" action="/guilds/{{ guild.id }}/images/{{ image.name }}/delete" onsubmit="return confirm('Delete {{ image.name }}?');">
+                    <button class="delete-button" type="submit" title="Delete image">✕</button>
+                  </form>
+                {% endif %}
+              </div>
+            </div>
+
+            {% if image.tags %}
+              <div class="tags">
+                {% for tag in image.tags %}
+                  <span>{{ tag }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              <p class="no-tags">No tags yet</p>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </section>
+    {% else %}
+      <section class="empty-state">
+        <h2>This gallery is empty.</h2>
+        <p>Save an image with the bot and it will appear here.</p>
+      </section>
+    {% endif %}
+  </main>
+
+  <dialog class="image-modal">
+    <button class="modal-close" type="button" aria-label="Close image">×</button>
+    <img src="" alt="">
+    <div class="modal-caption"></div>
+  </dialog>
+
+  <script>
+    (() => {
+      const modal = document.querySelector('.image-modal');
+      const modalImg = modal.querySelector('img');
+      const modalCaption = modal.querySelector('.modal-caption');
+      const closeBtn = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.image-preview').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          modalImg.src = btn.dataset.image;
+          modalImg.alt = btn.dataset.title;
+          modalCaption.textContent = btn.dataset.title;
+          modal.showModal();
+        });
+      });
+
+      closeBtn.addEventListener('click', () => modal.close());
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.close();
+      });
+
+      const tagSelect = document.getElementById('tag-filter-select');
+      if (tagSelect) {
+        tagSelect.addEventListener('change', () => {
+          const wanted = tagSelect.value;
+          document.querySelectorAll('.image-card').forEach((card) => {
+            const tags = (card.dataset.tags || '').split(/\s+/).filter(Boolean);
+            card.style.display = (!wanted || tags.includes(wanted)) ? '' : 'none';
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
